@@ -1,7 +1,8 @@
 
 // TODO: Include packages needed for this application
-const fs = require ('fs')
-const inquirer = require('inquirer')
+const fs = require ('fs');
+const inquirer = require('inquirer');
+// const title = require('process')
 
 let answer = 
 // TODO: Create an array of questions for user input
@@ -34,16 +35,17 @@ inquirer
         name:'features',
         message:'List the features of your project',
     },
-])
-.then ((data)) => {
-    
-    (writeToFile(`${}`))}
+    ]) //.then ((data) => {
+//     const title = data.name.title()
+//     writeToFile(`${title}.md`, data)});
    
 
-// TODO: Create a function to write README file
-function writeToFile(fileName, data) {
-    fs.writeFile(`README.md`, data)
-}
+// // TODO: Create a function to write README file
+// function writeToFile(fileName, data) {
+//     // TODO: use object decontrusction here
+//     let fileName = title;
+//     fs.writeFile(fileName, data);
+// }
 
 // TODO: Create a function to initialize app
 function init() {}
