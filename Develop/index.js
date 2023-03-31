@@ -1,7 +1,8 @@
 
 // TODO: Include packages needed for this application
 const fs = require ('fs')
-const inquirer = require('inquirer')
+const inquirer = require('inquirer');
+const generateMarkdown = require('./utils/generateMarkdown');
 
 let answer = 
 // TODO: Create an array of questions for user input
@@ -35,14 +36,21 @@ inquirer
         message:'List the features of your project',
     },
 ])
-.then ((data)) => {
-    
-    (writeToFile(`${}`))}
+.then ((data) => {
+    //TODO  convert test so that it selects the actual
+    let test = `${data.title}.md`
+    let test2 =  data;
+    writeToFile(test, test2);
+});
    
 
 // TODO: Create a function to write README file
 function writeToFile(fileName, data) {
-    fs.writeFile(`README.md`, data)
+    
+    let file = fileName 
+    data = generateMarkdown(data)
+    fs.writeFile(file,data , (err) =>
+    err ? console.log(err) : console.log('Success!'));
 }
 
 // TODO: Create a function to initialize app
